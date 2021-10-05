@@ -1,1 +1,9 @@
-<p>query works!</p>
+<app-drop-down *ngFor="let question of questions" 
+    [header]="question.question" 
+    [options]="question.answers"
+    [Qid]="question.id"
+    (selectChange)="selectChangeHandler($event)"></app-drop-down>
+
+
+    <h3>User Count</h3>
+    <p>{{count}}</p>

@@ -1,0 +1,8 @@
+<h3 class="custom-h">{{header}}</h3>
+<select class="custom-select" [(ngModel)]="selected" (change)="onSelect()" size="1" name="selected">
+    <option value="-1" selected="selected">SELECT</option>
+    <option value="" disabled></option>
+    <option *ngFor="let option of options; let i = index" [attr.data-index]="i" value="{{ i }}">
+        {{ option }}
+    </option>
+</select>

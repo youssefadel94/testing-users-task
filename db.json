@@ -51,12 +51,12 @@
         {
             "userId": "1",
             "questionId": "1",
-            "answeredIndex": 2
+            "answeredIndex": 1
         },
         {
             "userId": "1",
             "questionId": "2",
-            "answeredIndex": 1
+            "answeredIndex": 0
         },
         {
             "userId": "2",
