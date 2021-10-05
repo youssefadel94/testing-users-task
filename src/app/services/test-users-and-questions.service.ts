@@ -19,10 +19,11 @@ export class TestUsersAndQuestionsService {
   getQuestions(): Observable<IQuestion[]> {
     return this.http.get<IQuestion[]>(`${this.apiUrl}/IQuestion`);
   }
-  getResponses(QId: string, RId: number): Observable<IResponse[]> {
+  getResponses(QId: string, RId: number | string): Observable<IResponse[]> {
     return this.http.get<IResponse[]>(`${this.apiUrl}/IResponse?questionId=${QId}&answeredIndex=${RId}`);
   }
-  getUser(id:string): Observable<IUser> {
+  
+  getUser(id: string): Observable<IUser> {
     return this.http.get<IUser>(`${this.apiUrl}/IUser?id=${id}`);
   }
   getUsers(): Observable<Task[]> {
