@@ -3,8 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { QueryComponent } from './components/query/query.component';
 
 const routes: Routes = [
-  { path: '*', redirectTo: '/query', pathMatch: 'full' },
-  { path: 'query', component: QueryComponent },
+  { path: '*', redirectTo: '/', pathMatch: 'full' },
+  { path: '', component: QueryComponent },
 ];
 
 @NgModule({

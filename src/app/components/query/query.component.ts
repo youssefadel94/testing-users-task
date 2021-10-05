@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TestUsersAndQuestionsService } from 'src/app/services/test-users-and-questions.service';
 
 @Component({
   selector: 'app-query',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QueryComponent implements OnInit {
 
-  constructor() { }
+  constructor(private db: TestUsersAndQuestionsService) { }
 
   ngOnInit(): void {
   }
