@@ -32,12 +32,12 @@ export class QueryComponent implements OnInit {
     Object.keys(this.query).forEach(Qid => {
       if (this.query[Qid] != "-1") {
         this.db.getResponses(Qid, this.query[Qid]).subscribe(Q => {
-          console.log(Q);
+        //  console.log(Q);
           this.responses.length == 0 ?
             this.responses.push(...Q) :
             this.responses = this.responses.filter(n => Q.some(n2 => n.userId == n2.userId));
           this.count = this.responses.length;
-          console.log(this.responses);
+        //  console.log(this.responses);
 
         }, (error) => {
           throw new Error(error);
@@ -46,7 +46,7 @@ export class QueryComponent implements OnInit {
         })
       }
     })
-    console.log(this.count, this.responses);
+  //  console.log(this.count, this.responses);
 
   }
 
