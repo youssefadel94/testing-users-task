@@ -22,7 +22,6 @@ export class TestUsersAndQuestionsService {
   getResponses(QId: string, RId: number | string): Observable<IResponse[]> {
     return this.http.get<IResponse[]>(`${this.apiUrl}/IResponse?questionId=${QId}&answeredIndex=${RId}`);
   }
-  
   getUser(id: string): Observable<IUser> {
     return this.http.get<IUser>(`${this.apiUrl}/IUser?id=${id}`);
   }
