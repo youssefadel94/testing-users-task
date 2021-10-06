@@ -2,8 +2,11 @@ a simple query selector
 
 to run open terminal and type 
 
-npm i && npm run server
+npm i && npm run server .. this will install node modules and run a mmock api using the db.json file 
 
-then open another terminal and run 
+the db.json file work as a dynamic collection the questions added to the db will reflect in the app 
+and query the responses subsequently 
 
-ng serve
+to run the app open another terminal and run 
+
+ng serve .. this will start the app on localhost:4200
