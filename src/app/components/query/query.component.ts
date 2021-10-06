@@ -28,7 +28,7 @@ export class QueryComponent implements OnInit {
   selectChangeHandler(selected: { selected: string, Qid: string }) {
     this.query[selected.Qid] = selected.selected;
     this.count = 0;
-    // this.responses = [];
+    if(selected.selected =="-1") this.responses = [];
     // const filteredArray = array1.filter(value => array2.includes(value));
     Object.keys(this.query).forEach(Qid => {
       if (this.query[Qid] != "-1") {
@@ -72,7 +72,9 @@ export class QueryComponent implements OnInit {
       if (this.query[qId] != "-1" && qId != Qid) {
         res = false;
       }
-
+      // if (this.query[qId] == "-1" && qId == Qid) {
+      //   res = true;
+      // }
     })
     return res;
   }
