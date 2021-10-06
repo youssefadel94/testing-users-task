@@ -1,0 +1,5 @@
+<h3>User Count</h3>
+<p>{{count}}</p>
+
+<h4 *ngIf="options.length">Users</h4>
+<p *ngFor="let option of options; let i = index"> id: {{option.id}}, email: {{option.email}} </p>

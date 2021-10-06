@@ -4,6 +4,4 @@
     [Qid]="question.id"
     (selectChange)="selectChangeHandler($event)"></app-drop-down>
 
-
-    <h3>User Count</h3>
-    <p>{{count}}</p>
+<app-users [options]="users" [count]="count"></app-users>

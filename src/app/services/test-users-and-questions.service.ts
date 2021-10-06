@@ -25,6 +25,14 @@ export class TestUsersAndQuestionsService {
   getUser(id: string): Observable<IUser> {
     return this.http.get<IUser>(`${this.apiUrl}/IUser?id=${id}`);
   }
+  getUsersById(id: IResponse[]): Observable<IUser[]> {
+    var query = `${this.apiUrl}/IUser?`;
+    
+    id.forEach((id) => {
+      query += `id=${id.userId}&`
+    })
+    return this.http.get<IUser[]>(query);
+  }
   getUsers(): Observable<Task[]> {
     return this.http.get<Task[]>(`${this.apiUrl}/IUser`);
   }

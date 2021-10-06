@@ -13,6 +13,7 @@ export class QueryComponent implements OnInit {
   query: { [key: string]: string } = {};
   count = 0;
   responses: IResponse[] = [];
+  users: IUser[] = [];
   constructor(private db: TestUsersAndQuestionsService) { }
 
   ngOnInit(): void {
@@ -37,6 +38,7 @@ export class QueryComponent implements OnInit {
             this.responses.push(...Q) :
             this.responses = this.responses.filter(n => Q.some(n2 => n.userId == n2.userId));
           this.count = this.responses.length;
+          this.getUsers();
         //  console.log(this.responses);
 
         }, (error) => {
@@ -49,5 +51,10 @@ export class QueryComponent implements OnInit {
   //  console.log(this.count, this.responses);
 
   }
-
+  getUsers() {
+    if(this.responses.length!=0)
+    this.db.getUsersById(this.responses).subscribe((U: IUser[]) => {
+      this.users = U;
+    } )
+  }
 }

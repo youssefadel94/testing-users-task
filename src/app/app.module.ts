@@ -7,12 +7,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { QueryComponent } from './components/query/query.component';
 import { DropDownComponent } from './components/drop-down/drop-down.component';
+import { UsersComponent } from './components/users/users.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     QueryComponent,
     DropDownComponent,
+    UsersComponent,
   ],
   imports: [
     BrowserModule,
