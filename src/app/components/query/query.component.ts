@@ -28,18 +28,19 @@ export class QueryComponent implements OnInit {
   selectChangeHandler(selected: { selected: string, Qid: string }) {
     this.query[selected.Qid] = selected.selected;
     this.count = 0;
-    this.responses = [];
+    // this.responses = [];
     // const filteredArray = array1.filter(value => array2.includes(value));
     Object.keys(this.query).forEach(Qid => {
       if (this.query[Qid] != "-1") {
         this.db.getResponses(Qid, this.query[Qid]).subscribe(Q => {
-        //  console.log(Q);
-          this.responses.length == 0 ?
+          console.log(Q);
+
+          this.responses.length == 0 && this.unionCheck(this.responses, Qid) ?
             this.responses.push(...Q) :
             this.responses = this.responses.filter(n => Q.some(n2 => n.userId == n2.userId));
           this.count = this.responses.length;
-          this.getUsers();
-        //  console.log(this.responses);
+          this.getUsers(this.responses);
+          console.log(this.responses);
 
         }, (error) => {
           throw new Error(error);
@@ -48,13 +49,33 @@ export class QueryComponent implements OnInit {
         })
       }
     })
-  //  console.log(this.count, this.responses);
+    //  console.log(this.count, this.responses);
 
   }
-  getUsers() {
-    if(this.responses.length!=0)
-    this.db.getUsersById(this.responses).subscribe((U: IUser[]) => {
-      this.users = U;
-    } )
+  getUsers(responses: IResponse[]) {
+    if (responses.length != 0)
+      this.db.getUsersById(responses).subscribe((U: IUser[]) => {
+        this.users = U;
+      })
+    else
+      this.users = [];
+  }
+  unionCheck(responses: IResponse[], Qid: string) {
+    var res = true;
+    var f = 0;
+    // debugger
+    Object.keys(this.query).forEach(qId => {
+      
+      // if (this.query[qId] == "-1" && qId == Qid) {
+      //   res = false;
+      // }
+      if (this.query[qId] != "-1" && qId != Qid) {
+        res = false;
+      }
+
+    })
+    return res;
   }
 }
+
+
