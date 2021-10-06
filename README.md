@@ -10,3 +10,5 @@ and query the responses subsequently
 to run the app open another terminal and run 
 
 ng serve .. this will start the app on localhost:4200
+
+due to further implementation of logic needed for query switching you can reset the query selection by coosing the select option from drop down
